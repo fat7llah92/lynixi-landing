@@ -15,7 +15,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0A192F] text-white flex flex-col items-center justify-center p-6">
+    <div className="min-h-screen bg-[#071E26] text-white flex flex-col items-center justify-center p-6">
       <img src="/lynixi-logo.png" alt="Lynixi Logo" className="h-16 mb-4" />
 
       <motion.h1
@@ -51,7 +51,7 @@ export default function Home() {
             />
             <button
               type="submit"
-              className="bg-[#0A192F] hover:bg-[#00A896] text-white py-2 px-4 rounded"
+              className="bg-[#00A896] hover:bg-[#028090] text-white py-2 px-4 rounded"
             >
               Join Wait-list
             </button>
