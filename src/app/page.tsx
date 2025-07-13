@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#071E26] text-white flex flex-col items-center justify-center p-6">
-      <img src="https://drive.google.com/file/d/1bNwNUU5OSNjsk2fGmwok-lApzvPGaBa6/view?usp=drive_link" alt="Lynixi Logo" className="h-16 mb-4" />
+      <img src="/src/app/lynixi-logo.png" alt="Lynixi Logo" className="h-16 mb-4" />
 
       <motion.h1
         className="text-5xl font-bold mb-4 text-center"
