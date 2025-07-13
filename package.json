@@ -8,6 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "typescript": "^5.4.2",
+    "@types/react": "^18.2.15",
+    "@types/node": "^20.11.19"
     "autoprefixer": "^10.4.14",
     "framer-motion": "^10.12.16",
     "next": "14.1.0",
