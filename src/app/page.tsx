@@ -15,7 +15,9 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0A192F] to-[#00A896] text-white flex flex-col items-center justify-center p-6">
+    <div className="min-h-screen bg-[#0A192F] text-white flex flex-col items-center justify-center p-6">
+      <img src="/lynixi-logo.png" alt="Lynixi Logo" className="h-16 mb-4" />
+
       <motion.h1
         className="text-5xl font-bold mb-4 text-center"
         initial={{ opacity: 0, y: -20 }}
@@ -23,6 +25,7 @@ export default function Home() {
       >
         Lynixi
       </motion.h1>
+
       <motion.p
         className="text-xl text-center max-w-xl mb-8"
         initial={{ opacity: 0, y: 20 }}
@@ -55,6 +58,21 @@ export default function Home() {
           </form>
         )}
       </div>
+
+      <motion.div
+        className="mt-10 text-center"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
+        <p className="text-white text-sm mb-4">Trusted by professionals from</p>
+        <div className="flex justify-center flex-wrap gap-6 grayscale opacity-80">
+          <img src="/logo-aws.png" className="h-8" alt="AWS" />
+          <img src="/logo-cisco.png" className="h-8" alt="Cisco" />
+          <img src="/logo-cyberark.png" className="h-8" alt="CyberArk" />
+          <img src="/logo-accenture.png" className="h-8" alt="Accenture" />
+        </div>
+      </motion.div>
     </div>
   );
 }
