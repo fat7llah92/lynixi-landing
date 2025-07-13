@@ -1,8 +1,5 @@
 'use client';
 import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Card, CardContent } from '@/components/ui/card';
 import { motion } from 'framer-motion';
 
 export default function Home() {
@@ -34,28 +31,30 @@ export default function Home() {
         Securing talent. Securing the future. Join our wait-list and be the first to access our cybersecurity talent marketplace.
       </motion.p>
 
-      <Card className="w-full max-w-md bg-white text-black shadow-2xl rounded-2xl">
-        <CardContent className="p-6">
-          {submitted ? (
-            <p className="text-center text-green-600 font-semibold">
-              ✅ Thank you! You’re on the wait-list.
-            </p>
-          ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              <Button type="submit" className="bg-[#0A192F] hover:bg-[#00A896] text-white">
-                Join Wait-list
-              </Button>
-            </form>
-          )}
-        </CardContent>
-      </Card>
+      <div className="w-full max-w-md bg-white text-black shadow-2xl rounded-2xl p-6">
+        {submitted ? (
+          <p className="text-center text-green-600 font-semibold">
+            ✅ Thank you! You’re on the wait-list.
+          </p>
+        ) : (
+          <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="px-4 py-2 border rounded focus:outline-none"
+            />
+            <button
+              type="submit"
+              className="bg-[#0A192F] hover:bg-[#00A896] text-white py-2 px-4 rounded"
+            >
+              Join Wait-list
+            </button>
+          </form>
+        )}
+      </div>
     </div>
   );
 }
