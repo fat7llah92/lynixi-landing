@@ -6,13 +6,17 @@ export default function Home() {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email.trim()) {
-      console.log('Submitted email:', email);
-      setSubmitted(true);
-    }
-  };
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  if (!email.trim()) return;
+
+  const res = await fetch("/api/waitlist", {
+    method: "POST",
+    body: JSON.stringify({ email }),
+  });
+
+  if (res.ok) setSubmitted(true);
+};
 
   return (
     <div className="min-h-screen bg-[#071E26] text-white flex flex-col items-center justify-center p-6">
