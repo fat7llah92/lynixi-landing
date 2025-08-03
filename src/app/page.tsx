@@ -48,7 +48,7 @@ export default function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
       >
-        Join the Cyberhoc Alpha Waitlist
+        Join the Cyberhoc Waitlist
       </motion.h1>
 
       <motion.p
@@ -57,7 +57,7 @@ export default function Home() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
       >
-        Be the first to access our curated cybersecurity talent marketplace.
+        Be the first to access our cybersecurity talent marketplace.
       </motion.p>
 
       {!submitted ? (
