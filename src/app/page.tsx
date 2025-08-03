@@ -7,12 +7,27 @@ import { motion } from 'framer-motion';
 export default function Home() {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim()) {
-      console.log('Submitted email:', email);
+    setError('');
+
+    try {
+      const res = await fetch('/.netlify/functions/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!res.ok) {
+        throw new Error('Failed to submit email');
+      }
+
       setSubmitted(true);
+      setEmail('');
+    } catch (err) {
+      setError('Something went wrong. Please try again.');
     }
   };
 
@@ -46,12 +61,9 @@ export default function Home() {
       </motion.p>
 
       {!submitted ? (
-        <motion.form
+        <form
           onSubmit={handleSubmit}
           className="w-full max-w-md flex flex-col sm:flex-row items-center justify-center gap-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7 }}
         >
           <input
             type="email"
@@ -67,7 +79,7 @@ export default function Home() {
           >
             Notify Me
           </button>
-        </motion.form>
+        </form>
       ) : (
         <motion.p
           className="text-xl text-green-400 mt-4"
@@ -77,6 +89,10 @@ export default function Home() {
         >
           Thanks for signing up!
         </motion.p>
+      )}
+
+      {error && (
+        <p className="text-red-400 mt-4">{error}</p>
       )}
     </div>
   );
